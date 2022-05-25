@@ -10,18 +10,19 @@ import "./home.css";
 function Home() {
   return (
     <div>
-    <Navbar/>
-    <Header/>
-    <div className="homeContainer">
-      <Featured/>
-      <PropertyList/>
-      <h1 className="homeTitle" >Homes guests love</h1>
-      <FeaturedProperties/>
-      <MailList/>
-      <Footer/>
+      <Navbar />
+      <Header />
+      <div className="homeContainer">
+        <Featured />
+        <h1 className="homeTitle">Browse by properties type</h1>
+        <PropertyList />
+        <h1 className="homeTitle">Homes guests love</h1>
+        <FeaturedProperties />
+        <MailList />
+        <Footer />
+      </div>
     </div>
-    </div>
-  )
+  );
 }
 
-export default Home
+export default Home;

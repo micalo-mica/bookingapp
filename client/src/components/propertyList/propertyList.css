@@ -1,31 +1,74 @@
-.pList{
-    width:100%;
-    max-width: 1024px;
-    display: flex;
-    justify-content:space-between;
-    gap: 20px;
+.pList {
+  width: 100%;
+  max-width: 80vw;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
 }
 
-.pListItem{
-    flex: 1;
-    border-radius: 10px;
-    overflow: hidden;
-    cursor: pointer;
+.pListItem {
+  flex: 1;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
 }
 
-.pListImg{
+.pListImg {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.pListTitles > h1 {
+  font-size: 18px;
+  color: #444;
+}
+
+.pListTitles > h2 {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+@media screen and (max-width: 768px) {
+}
+@media screen and (max-width: 480px) {
+  .pList {
+    max-width: 99vw;
+    margin: 0 auto;
+    gap: 5px;
+  }
+
+  /* .pListItem {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      gap: 5px;
+      overflow: hidden;
+    } */
+
+  .imgWrapper {
     width: 100%;
-    height: 150px;
+    height: 70px;
+  }
+
+  .pListImg {
+    width: 100%;
     object-fit: cover;
-}
+  }
 
-.pListTitles>h1{
-    font-size: 18px;
-    color: #444;
-    text-transform: capitalize;
-}
+  .pListTitles {
+    margin-top: 10px;
+  }
 
-.pListTitles>h2{
-    font-size: 14px;
+  .pListTitles > h1 {
+    font-size: 10px;
+    color: red;
+  }
+
+  .pListTitles > h2 {
+    color: red;
+    font-size: 12px;
     font-weight: 300;
+  }
 }
