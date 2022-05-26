@@ -115,14 +115,16 @@ function Header({ type }) {
                     )}`}
                   </span>
                   {openDate && (
-                    <DateRange
-                      editableDateInputs={true}
-                      onChange={(item) => setDates([item.selection])}
-                      moveRangeOnFirstSelection={false}
-                      minDate={new Date()}
-                      ranges={dates}
-                      className="date"
-                    />
+                    <div className="forCalender">
+                      <DateRange
+                        editableDateInputs={true}
+                        onChange={(item) => setDates([item.selection])}
+                        moveRangeOnFirstSelection={false}
+                        minDate={new Date()}
+                        ranges={dates}
+                        className="date"
+                      />
+                    </div>
                   )}
                 </div>
                 <div className="headerSearchItem">

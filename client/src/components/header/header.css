@@ -92,6 +92,7 @@
 .date {
   position: absolute;
   top: 50px;
+  left: 300px;
   z-index: 2;
 }
 
@@ -362,14 +363,19 @@
     font-weight: bold;
   }
 
+  .forCalender {
+    /* width: 100px; */
+    /* top: 30px; */
+    /* min-width: 70vw; */
+    left: 3px;
+    position: absolute;
+  }
+
   .date {
     width: 95vw;
     top: 30px;
     left: 3px;
-    /* height: 50vw; */
-    /* min-height: 20vw; */
-    /* margin: 0 auto; */
-    /* left: 12px; */
+    overflow: scroll;
   }
 
   .roomCover {
