@@ -1,4 +1,3 @@
-
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
@@ -11,9 +10,9 @@ const Login = () => {
     password: undefined,
   });
 
-  const {user, loading, error, dispatch } = useContext(AuthContext);
+  const { user, loading, error, dispatch } = useContext(AuthContext);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
@@ -25,18 +24,17 @@ const Login = () => {
     try {
       const res = await publicRequest.post("/auth/login", credentials);
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
-      navigate("/")
+      navigate("/");
     } catch (err) {
       dispatch({ type: "LOGIN_FAILURE", payload: error.res.data });
     }
   };
 
-  console.log(user)
-
-
+  console.log(user);
 
   return (
     <div className="login">
+      <h2 className="loginText">Welcome back and login </h2>
       <div className="lContainer">
         <input
           type="text"
