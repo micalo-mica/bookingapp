@@ -327,6 +327,10 @@
     margin: 10px 0px;
   }
 
+  .headerDesc.up {
+    margin-bottom: 30px;
+  }
+
   .headerBtn {
     margin-bottom: 40px;
     padding: 3px;

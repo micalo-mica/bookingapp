@@ -4,27 +4,47 @@ import { AuthContext } from "../../context/AuthContext";
 import "./navbar.css";
 
 function Navbar() {
-  const { user } = useContext(AuthContext);
+  const { user, dispatch } = useContext(AuthContext);
+
+  const logOut = () => {
+    dispatch({ type: "LOGOUT" });
+  };
 
   return (
-    <div className="navbar" >
-        <div className="navContainer">
-          <Link to="/" style={{color:"inherit", textDecoration: "none"}} >
-            <span className="logo">micalobooking</span>
-          </Link>
-          {user ? user.username : (
-            <div className="navItems">
-              <Link to="/register" style={{color:"inherit", textDecoration: "none"}} >
-                <button className="navButton">Register</button>
+    <div className="navbar">
+      <div className="navContainer">
+        <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>
+          <span className="logo">booking</span>
+        </Link>
+        <div className="rightContainer">
+          {user && <p className="welcome">welcome, {user.username}</p>}
+
+          <div className="navItems">
+            {!user ? (
+              <>
+                <Link
+                  to="/register"
+                  style={{ color: "inherit", textDecoration: "none" }}
+                >
+                  <button className="navButton">Register</button>
                 </Link>
-                <Link to="/login" style={{color:"inherit", textDecoration: "none"}} >
-                <button className="navButton">Login</button>
+                <Link
+                  to="/login"
+                  style={{ color: "inherit", textDecoration: "none" }}
+                >
+                  <button className="navButton">Login</button>
                 </Link>
-            </div>
-              )}
+              </>
+            ) : (
+              <button className="navButton" onClick={logOut}>
+                Log out
+              </button>
+            )}
+          </div>
         </div>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;

@@ -24,6 +24,16 @@
   font-weight: 500;
 }
 
+.rightContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* .welcome {
+
+} */
+
 .navButton {
   margin-left: 20px;
   border: none;
@@ -65,5 +75,15 @@
   .logo {
     font-size: 18px;
     font-weight: bold;
+  }
+
+  .welcome {
+    font-size: 10px;
+    font-weight: 500;
+  }
+
+  .navButton {
+    margin-left: 5px;
+    padding: 2px 3px;
   }
 }
