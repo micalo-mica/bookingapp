@@ -24,9 +24,16 @@ mongoose.connection.on("disconnected", () => {
   console.log("mongoDB disconnected!");
 });
 
+const corsOptions = {
+  origin: process.env.NODE_ENV === "production" ? "" : "http://localhost:3000",
+  credentials: true, //access-control-allow-credentials:true
+  optionSuccessStatus: 200,
+};
+
 //middlewares
-app.use(cors())
-app.use(cookieParser())
+app.use(cors(corsOptions));
+// app.use(cors());
+app.use(cookieParser());
 app.use(express.json());
 
 app.use("/api/auth", authRoute);
