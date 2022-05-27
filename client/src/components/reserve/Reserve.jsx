@@ -1,12 +1,10 @@
-
-import CloseIcon from '@mui/icons-material/Close';
+import CloseIcon from "@mui/icons-material/Close";
 import "./reserve.css";
 import useFetch from "../../hooks/useFetch";
 import { useContext, useState } from "react";
 import { SearchContext } from "../../context/SearchContext";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { publicRequest } from '../../requestMethod';
+import { publicRequest } from "../../requestMethod";
 
 const Reserve = ({ setOpen, hotelId }) => {
   const [selectedRooms, setSelectedRooms] = useState([]);
@@ -68,10 +66,7 @@ const Reserve = ({ setOpen, hotelId }) => {
   return (
     <div className="reserve">
       <div className="rContainer">
-        <CloseIcon
-          className="rClose"
-          onClick={() => setOpen(false)}
-        />
+        <CloseIcon className="rClose" onClick={() => setOpen(false)} />
         <span>Select your rooms:</span>
         {data.map((item) => (
           <div className="rItem" key={item._id}>
