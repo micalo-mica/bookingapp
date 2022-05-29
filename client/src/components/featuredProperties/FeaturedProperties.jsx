@@ -27,8 +27,6 @@ function FeaturedProperties() {
   //   fetchData();
   // }, []);
 
-  console.log(data);
-
   return (
     <div className="fp">
       {loading ? (
