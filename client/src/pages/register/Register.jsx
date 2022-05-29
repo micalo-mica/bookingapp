@@ -4,20 +4,19 @@ import { useNavigate } from "react-router-dom";
 import { publicRequest } from "../../requestMethod";
 import "./register.css";
 
-const Login = () => {
+const Register = () => {
   const [credentials, setCredentials] = useState({
     username: undefined,
     email: undefined,
     password: undefined,
     country: undefined,
     city: undefined,
+    phone: undefined,
   });
 
   const [message, setMessage] = useState(null, {});
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-
-  //   const { user, loading, error, dispatch } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -27,17 +26,16 @@ const Login = () => {
 
   const handleClick = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const res = await publicRequest.post("/auth/register", credentials);
-      setLoading(true);
       setMessage(res.data);
       navigate("/login");
-    } catch (err) {
+    } catch (error) {
       setError(error.res.data);
     }
+    setLoading(false);
   };
-
-  //   console.log(user);
 
   return (
     <div className="login">
@@ -78,13 +76,20 @@ const Login = () => {
           onChange={handleChange}
           className="lInput"
         />
+        <input
+          type="text"
+          placeholder="phone"
+          id="phone"
+          onChange={handleChange}
+          className="lInput"
+        />
         <button disabled={loading} onClick={handleClick} className="lButton">
           Register
         </button>
-        {error ? <span>{error.message}</span> : <span>{message}</span>}
+        {/* {error ? <span>{error.message}</span> : <span>{message}</span>} */}
       </div>
     </div>
   );
 };
 
-export default Login;
+export default Register;

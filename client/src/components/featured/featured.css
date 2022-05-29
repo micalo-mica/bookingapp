@@ -7,6 +7,16 @@
   z-index: 1;
 }
 
+.spinnerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* .spinner {
+  display: flex;
+  align-self: center;
+} */
+
 .featuredItem {
   position: relative;
   color: white;

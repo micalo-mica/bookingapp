@@ -3,6 +3,7 @@ import useFetch from "../../hooks/useFetch";
 // import useFetch from "../../hooks/useFetch";
 // import { publicRequest } from "../../requestMethod";
 import "./featured.css";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const url = "/hotels/countByCity?cities=berlin,madrid,london";
 
@@ -30,7 +31,9 @@ function Featured() {
   return (
     <div className="featured">
       {loading ? (
-        "Loading please wait"
+        <div className="spinnerContainer">
+          <CircularProgress className="spinner" />
+        </div>
       ) : (
         <>
           <div className="featuredItem">

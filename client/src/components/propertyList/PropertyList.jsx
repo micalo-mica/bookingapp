@@ -1,27 +1,31 @@
 import { useEffect, useState } from "react";
 import { publicRequest } from "../../requestMethod";
 import "./propertyList.css";
+import CircularProgress from "@mui/material/CircularProgress";
+import useFetch from "../../hooks/useFetch";
 
 const url = "/hotels/countByType";
 
 function PropertyList() {
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const { data, loading, error } = useFetch(url);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      try {
-        const res = await publicRequest.get(url);
-        setData(res.data);
-      } catch (err) {
-        setError(err);
-      }
-      setLoading(false);
-    };
-    fetchData();
-  }, []);
+  // const [data, setData] = useState([]);
+  // const [loading, setLoading] = useState(false);
+  // const [error, setError] = useState(false);
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     setLoading(true);
+  //     try {
+  //       const res = await publicRequest.get(url);
+  //       setData(res.data);
+  //     } catch (err) {
+  //       setError(err);
+  //     }
+  //     setLoading(false);
+  //   };
+  //   fetchData();
+  // }, []);
 
   const images = [
     "https://cf.bstatic.com/xdata/images/xphoto/square300/57584488.webp?k=bf724e4e9b9b75480bbe7fc675460a089ba6414fe4693b83ea3fdd8e938832a6&o=",
@@ -34,7 +38,9 @@ function PropertyList() {
   return (
     <div className="pList">
       {loading ? (
-        "loading"
+        <div className="spinnerContainer">
+          <CircularProgress className="spinner" />
+        </div>
       ) : (
         <>
           {data &&
